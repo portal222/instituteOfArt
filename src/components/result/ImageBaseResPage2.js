@@ -26,6 +26,11 @@ const ImageBaseResPage2 = () => {
         navigate(LinkTo);
     }
 
+    const clickArtist = (artistTitle) => {
+        const LinkTo = `/artist/${artistTitle}`;
+        navigate(LinkTo);
+    }
+
     useEffect(() => {
         getImage(searchStringValue);
     }, [])
@@ -119,7 +124,8 @@ const ImageBaseResPage2 = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td colSpan={2} className="artist">
+                            <td colSpan={2} className="artist"
+                             onClick={() => clickArtist(museum.artist_title)}>
                                 {museum.artist_display}
                             </td>
                         </tr>

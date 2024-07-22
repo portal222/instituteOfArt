@@ -6,7 +6,7 @@ import TableRow from "./TableRow";
 import { useNavigate } from "react-router-dom";
 
 
-const ImageArtworks = (props) => {
+const ImageArtworks2 = (props) => {
 
     const [error, setError] = useState(null);
     const [museum, setMuseum] = useState([]);
@@ -15,7 +15,7 @@ const ImageArtworks = (props) => {
     const navigate = useNavigate();
 
     const clickArtist = (artistTitle) => {
-        const LinkTo = `/artist2/${artistTitle}`;
+        const LinkTo = `/artist/${artistTitle}`;
         navigate(LinkTo);
     }
   
@@ -33,6 +33,7 @@ const ImageArtworks = (props) => {
 
             setMuseum(data.data)
             setIsLoading(false);
+            console.log("image artworks podaci", data.data);
 
         } catch (err) {
             setError(err);
@@ -85,4 +86,4 @@ const ImageArtworks = (props) => {
         </>
     )
 }
-export default ImageArtworks;
+export default ImageArtworks2;

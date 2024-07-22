@@ -12,29 +12,33 @@ const TableRow = (props) => {
 
     return (
         <>
-            <tr>
-                <td className="collapse">
+            <table>
+                <tbody>
+                    <tr>
+                        <td className="collapse">
 
-                    <IconButton
-                        aria-label='expand row'
-                        size='small'
-                        onClick={() => setOpen(!open)}
-                    >
-                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                    </IconButton>
-                    more...</td>
-            </tr>
-            <tr>
-                <td>
-                    <Collapse in={open} timeout='auto' unmountOnExit>
-                        <Box sx={{ margin: 0 }}>
-                            <MuseumCollapsable
-                                artInst={props?.details}
-                            />
-                        </Box>
-                    </Collapse>
-                </td>
-            </tr>
+                            <IconButton
+                                aria-label='expand row'
+                                size='small'
+                                onClick={() => setOpen(!open)}
+                            >
+                                {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                            </IconButton>
+                            more...</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Collapse in={open} timeout='auto' unmountOnExit>
+                                <Box sx={{ margin: 0 }}>
+                                    <MuseumCollapsable
+                                        artInst={props?.details}
+                                    />
+                                </Box>
+                            </Collapse>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </>
     );
 };

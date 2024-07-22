@@ -9,6 +9,8 @@ import ImageBaseClick from "./result/ImageBaseClick";
 import ImageBaseClick2 from "./result/ImageBaseClick2";
 import Footers from "./Footers";
 import BannerImg from "./result/BannerImg";
+import ImageBaseClickName from "./result/ImageBaseClickName";
+import ImageBaseClickName2 from "./result/ImageBaseClickName2";
 
 export default function Navigation() {
   return (
@@ -28,6 +30,8 @@ export default function Navigation() {
         <Route path="/CMpage2" element={<ImageBaseResPage2 />} />
         <Route path="/ImageBaseClick/:pageNum" element={<ImageBaseClick />} />
         <Route path="/ImageBaseClick2/:pageNum" element={<ImageBaseClick2 />} />
+        <Route path="/artist/:artistTitle" element={<ImageBaseClickName />} />
+        <Route path="/artist2/:artistTitle" element={<ImageBaseClickName2 />} />
       </Routes>
       <Footers />
     </HashRouter>

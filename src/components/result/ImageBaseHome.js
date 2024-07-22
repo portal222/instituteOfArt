@@ -30,6 +30,11 @@ const ImageBaseHome = () => {
         navigate(LinkTo);
     }
 
+    const clickArtist = (artistTitle) => {
+        const LinkTo = `/artist/${artistTitle}`;
+        navigate(LinkTo);
+    }
+
     useEffect(() => {
         getImage();
     }, [])
@@ -98,7 +103,7 @@ const ImageBaseHome = () => {
                 {image.map((museum) => (
                     <tbody key={museum.id}>
                         <tr>
-                                <Photos photos={museum.image_id} />
+                            <Photos photos={museum.image_id} />
                         </tr>
                         <tr>
                             <td className="name">
@@ -106,7 +111,8 @@ const ImageBaseHome = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td  className="artist">
+                            <td className="artist"
+                                onClick={() => clickArtist(museum.artist_title)}>
                                 {museum.artist_display}
                             </td>
                         </tr>
@@ -115,7 +121,11 @@ const ImageBaseHome = () => {
                                 {museum.thumbnail?.alt_text}
                             </td>
                         </tr>
-                        <TableRow details={museum} />
+                        <tr>
+                            <td>
+                                <TableRow details={museum} />
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <hr></hr>

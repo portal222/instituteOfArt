@@ -25,6 +25,11 @@ const ImageBaseClick = () => {
         navigate(LinkTo);
     }
 
+    const clickArtist = (artistTitle) => {
+        const LinkTo = `/artist2/${artistTitle}`;
+        navigate(LinkTo);
+    }
+
     useEffect(() => {
         getImage();
     }, [])
@@ -84,7 +89,7 @@ const ImageBaseClick = () => {
                                 <div className="butPage"
                                     onClick={() => clickPage(page.current_page + 1)}>Next</div>
                                 <div className="butPage"
-                                    onClick={() => clickPage(page.current_page + 10)}>+10</div>     
+                                    onClick={() => clickPage(page.current_page + 10)}>+10</div>
                             </div>
                         </td>
                     </tr>
@@ -92,7 +97,7 @@ const ImageBaseClick = () => {
                 {image.map((museum) => (
                     <tbody key={museum.id}>
                         <tr>
-                                <Photos photos={museum.image_id} />
+                            <Photos photos={museum.image_id} />
                         </tr>
                         <tr>
                             <td className="name">
@@ -100,7 +105,8 @@ const ImageBaseClick = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td colSpan={2} className="artist">
+                            <td colSpan={2} className="artist"
+                            onClick={() => clickArtist(museum.artist_title)}>
                                 {museum.artist_display}
                             </td>
                         </tr>
@@ -109,7 +115,11 @@ const ImageBaseClick = () => {
                                 {museum.thumbnail?.alt_text}
                             </td>
                         </tr>
-                        <TableRow details={museum} />
+                        <tr>
+                            <td>
+                                <TableRow details={museum} />
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <hr></hr>

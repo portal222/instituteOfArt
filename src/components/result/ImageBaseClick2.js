@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
-
 import { useNavigate } from "react-router-dom";
-
 import { useParams } from "react-router-dom";
 import Loader from "../Loader";
 import Photos from "./Photos";
@@ -31,6 +29,11 @@ const ImageBaseClick2 = () => {
 
     const clickPage = (pageNum) => {
         const LinkTo = `/ImageBaseClick/${pageNum}`;
+        navigate(LinkTo);
+    }
+
+    const clickArtist = (artistTitle) => {
+        const LinkTo = `/artist/${artistTitle}`;
         navigate(LinkTo);
     }
 
@@ -131,7 +134,8 @@ const ImageBaseClick2 = () => {
                         </tr>
                         <tr>
 
-                            <td colSpan={2} className="artist">
+                            <td colSpan={2} className="artist"
+                             onClick={() => clickArtist(museum.artist_title)}>
                                 {museum.artist_display}
                             </td>
                         </tr>
